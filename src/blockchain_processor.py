@@ -304,7 +304,7 @@ class BlockchainProcessor(Processor):
             for tx_hash, delta in self.mempool_hist.get(addr, ()):
                 height = -1 if self.mempool_unconfirmed.get(tx_hash) else 0
                 fee = self.mempool_fees.get(tx_hash)
-                hist.append({'tx_hash':tx_hash, 'height':height, 'fee':fee})
+                hist.append({'tx_hash':tx_hash, 'height':height, 'fee':fee, 'value':delta})
         return hist
 
     def get_history(self, addr, cache_only=False):
